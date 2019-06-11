@@ -1,0 +1,54 @@
+<style>
+        body{
+            background-image: url("log.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+            padding-left: 1020px;
+        }
+    
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+    
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+    
+        .topnav a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+    <div class="topnav">
+            <a href="#/home">Home</a>
+            <a class="active" href="#/admin">Admin</a>
+            <a href="#/login">Login</a>
+            <a href="#/register">Register</a>
+          </div>
+    
+
+<div style="color: black;" class="col-md-12" ng-controller="myCtrl1">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+        <h2 style="text-align: center;">Admin Login</h2>
+
+        <label for="name">Username</label>
+        <input type="text" ng-model="name" class="form-control" required placeholder="Enter the Username"><br>
+        <label for="password">Password</label>
+        <input type="password" ng-model="pwd" class="form-control" required placeholder="Enter the Password"><br><br>
+        <input type="button" value="Register" ng-click="ClickMe();" class="form-control btn btn-primary">
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
