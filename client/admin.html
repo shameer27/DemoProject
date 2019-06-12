@@ -1,0 +1,71 @@
+<style>
+       .menu li {
+        list-style: none;
+        text-align: center;
+        float: left;
+        padding: 12px;
+    }
+
+    .section-1 {
+        background: #000;
+        color: #fff!important;
+    }
+
+    .menu li a {
+        color: #fff!important
+    }
+    .form-control{
+        padding:10px 15px;
+    }
+</style>
+<div class="container-fluid section-1">
+    <div class="col-md-12">
+        <ul class="menu">
+            <li>
+                <a href="#/Home">Home</a>
+            </li>
+        </ul>
+    </div>
+</div><br>
+<div class="col-md-12" ng-controller="myCtrl4" ng-init="getdataasjson()">
+        <div>
+            <table class="table table-bordered table-hover parenttable" id="datatable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Password</th>
+                            <th>DOB</th>
+                            <th>Status</th>
+                            <th>Edit&Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in demo" class="childrow">
+                            <td><input ng-model="x.name" type="text" class="form-control" value ="{{x.name}}"></td>
+                            <td><input ng-model="x.mail" type="email" class="form-control" value="{{x.mail}}"></td>
+                            <td><input ng-model="x.phno" type="text" class="form-control" value="{{x.phno}}"></td>
+                            <td><input ng-model="x.pwd" type="text" class="form-control" value="{{x.pwd}}"></td>
+                            <td><input ng-model="x.dob" type="text" class="form-control" value="{{x.dob}}"></td>
+                            <td></td>
+                             <td>
+                                <button class="btn btn-primary edit"><i class="fa fa-pencil"></i></button>
+                                <button class="btn btn-primary save" ng-click="save(x,x._id)">Save</button>
+                                <button ng-click="deletedata(x._id)" class="btn btn-primary">X</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+           </div>
+        </div>
+        <script>
+            $('.save').hide();
+             $(document).on('click', '.edit', function(e){
+                 e.preventDefault();
+                 $(this).closest('.childrow').find('input').prop("disabled",false);
+                 $(this).closest('.childrow').find('.edit').hide();
+                 $(this).closest('.childrow').find('.save').show();
+            });
+            </script>
+

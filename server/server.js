@@ -16,7 +16,6 @@ var users = mongoose.model('test', {
 
 app.use(bodyParser.json());
 app.all('*', function (req, res, next) {
-    
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
@@ -34,6 +33,15 @@ app.post('/reg', function (req, res) {
         else {
             console.log(data);
             res.send({code:0})
+        }
+    });
+});
+app.get('/getdata', function (req, res) {
+    users.find({}).exec(function (err, demo1) {
+        if (err) {
+
+        } else {
+            res.send({ status: "1", data: demo1 });
         }
     });
 });

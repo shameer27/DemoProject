@@ -6,8 +6,8 @@ app.config(function ($routeProvider) {
             controller: 'myCtrl'
         })
         .when('/admin', {
-            templateUrl: 'admlog.html',
-            controller: 'myCtrl1'
+            templateUrl: 'admin.html',
+            controller: 'myCtrl4'
         })
         .when('/login', {
             templateUrl: 'log.html',
@@ -19,7 +19,7 @@ app.config(function ($routeProvider) {
         })
         .otherwise({
             redirectTo: '/home'
-        });    
+        });
 });
 app.controller("myCtrl3",function($scope,$http){
     $scope.ClickMe=function(){
@@ -38,4 +38,18 @@ app.controller("myCtrl3",function($scope,$http){
                 });
         }
 });
-
+app.controller('myCtrl4', function ($scope, $http) {
+$scope.getdataasjson = function () {
+    $http.get('http://localhost:2500/getdata').success(function (response) {
+        if (response.status == '1') {
+            console.log(response, "response")
+            $scope.demo = response.data;
+        }
+    });
+}
+// });
+// app.controller('myCtrl1', function ($scope) {
+//     $scope.clickHere = function () {
+//         location.href="admin.html"
+//       } 
+});
